@@ -1,0 +1,22 @@
+.vast-shadow-regular {
+    font-family: "Vast Shadow", serif;
+    font-weight: 400;
+    font-style: normal;
+    color: #20A3F5;
+  }
+  
+pre.chant {
+    font-size: 1.2rem;
+    white-space: pre-wrap; 
+    line-height: 1.7;
+    margin: 2rem 0;
+    font-family: "elfreth-variable",sans-serif;
+    font-variation-settings: 'wght' 400;
+  }
+  
+  
+  
+.example {
+    font-family: "elfreth-variable",sans-serif;
+    font-variation-settings: 'wght' 700;
+  }
