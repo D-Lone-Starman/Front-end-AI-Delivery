@@ -1,3 +1,30 @@
+/* Estilos globais modernos responsivos e estilosos */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+h1, h2, h3 {
+    color: #444;
+    text-align: center;
+    margin-top: 20px;
+}
+p {
+    line-height: 1.6;
+    margin: 20px;
+}
+a {
+    color: #3498db;
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}
+
+
+
 /* crie um estilo para a table */
 table {
     width: 100%;
