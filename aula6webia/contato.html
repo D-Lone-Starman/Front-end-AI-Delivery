@@ -23,28 +23,40 @@
     </header>
     <main>
         <figure id="banner">
-        <img src="imgs/banner.jpg" alt="Banner Image">
+            <img src="imgs/banner.jpg" alt="Banner Image">
         </figure>
         <div id="tablet">
             Acessando de um tablet?
         </div>
-        <!-- conteudo principal-->
+        <!-- formulario de contato -->
         <article id="conteudo">
-            <h1>Bem-vindos a Collectors Realm</h1>
-            <p>Sua loja para comprar todas as figures!</p>
-            <p>Aqui na Collectors Realm, você encontra uma vasta seleção de figures de alta qualidade, desde personagens
-                de anime e mangá até super-heróis e ícones da cultura pop. Nossa missão é proporcionar aos
-                colecionadores e entusiastas uma experiência de compra excepcional, oferecendo produtos autênticos e
-                exclusivos.</p>
+            <h1>Contato</h1>
+            <p>Preencha o formulário abaixo para entrar em contato conosco:</p>
+            <form action="a" method="post">
+                <label for="name">Nome:</label>
+                <input type="text" id="name" name="name" required>
+                <br>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                <br>
+                <label for="message">Mensagem:</label>
+                <textarea id="messagem" name="messagem" rows="4" required></textarea>
+                <br>
+                <button type="submit">Enviar</button>
+            </form>
         </article>
 
         <!-- conteudo secundario-->
-        <aside id="lateral">
-            <h2> Coleções</h2>
-            <p>Venha conhecer todas as coleções disponiveis no site!</p>
-            <p>Temos diversas coleções para todos os gostos, desde figuras de ação detalhadas até estatuetas artísticas.
-                Explore nossas categorias e encontre a peça perfeita para adicionar à sua coleção.</p>
+
+        <!-- mapa de localizacao -->
+        <aside id="mapa">
+            <h2>Nosso Local</h2>
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3675.2002921560643!2d-43.179899824689514!3d-22.905982079255633!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x997f5e453810bf%3A0x36663ec7ca8b5720!2sAv.%20Rio%20Branco%2C%20Rio%20de%20Janeiro%20-%20RJ%2C%2059600-145!5e0!3m2!1spt-BR!2sbr!4v1756926107471!5m2!1spt-BR!2sbr"
+                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
         </aside>
+
 
     </main>
 
@@ -65,6 +77,7 @@
                     alt="Valid CSS!" />
             </a>
         </p>
+
     </footer>
 
 </body>
