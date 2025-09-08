@@ -1,49 +1,126 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
-    crossorigin="anonymous"></script>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aula9</title>
+  <!--css do bootstrap 5-->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/estilo.css">
+  <!--bootstrap icons-->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js">
+  </script>
+  <!--jquery UI-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.14.1/jquery-ui.min.js" crossorigin="anonymous"
+    referrerpolicy="no-referrer"></script>
+  <!--js do bootstrap 5-->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous">
+  </script>
 </head>
+
 <body>
-    <div class="container">
-        <div class="row">
-            <!--menu lateral-->
-            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 bg-secondary">  
-                Menu lateral
-                <nav class="navbar navbar-expand-lg bg-body-tertiary">
-                    <div class="container-fluid">
-                      <a class="navbar-brand" href="#">Navbar scroll</a>
-                      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                      </button>
-                      <div class="collapse navbar-collapse" id="navbarScroll">
-                        <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
-                          <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Home</a>
-                          </li>
-                          <li class="nav-item">
-                            <a class="nav-link" href="#">Link</a>
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-                  </nav>
+  <script>
+    $(function () {
+      var nome = "Joao";
+      console.log("vamos de js " + nome);
+      $("p").css("color", "#F00");
+      $("#alunos").hide().fadeIn(2000);
+      $(".add").on("click", function () {
+        $("#texto").css("font-size", "+=2px");
+      });
+      $(".less").on("click", function () {
+        $("#texto").css("font-size", "-=2px");
+      });
+      $("#reserva").hide();
+    });
+  </script>
+  <div class="container">
+    <div class="row">
+      <div class="col-3">
+        <ul class="nav nav-pills flex-column">
+          <li class="nav-item">
+            <a class="nav-link active" href="#">
+              Home <i class="bi bi-house"></i>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Reserva
+              <i class="bi bi-tag"></i></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              Contato <i class="bi bi-envelope"></i>
+            </a>
+          </li>
+        </ul>
+        </ul>
+      </div><!--fecha a lateral-->
+      <div class="col-9">
+        <div id="tela1">
+          <h2>Aula Front-end com Jquery</h2>
+          <p>O Bootstrap 5 facilita a criação de layouts responsivos e modernos.</p>
+          <span>Inteligencia artificial</span>
+          <div id="alunos">
+            <ul>
+              <li>João</li>
+              <li>Maria</li>
+              <li>Pedro</li>
+              <li>Ana</li>
+              <li>Lucas</li>
+              <li>Julia</li>
+              <li>Rafael</li>
+            </ul>
+          </div>
+          <i class="bi bi-plus-circle add" style="cursor: pointer;"></i>
 
-            </div>
-             <!--conteudo-->
-            <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9 bg-primary text-white">
-                conteudo principal
+          <i class="bi bi-dash-circle less" style="cursor: pointer;"></i>
 
-            </div>
+          <p id="texto">
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum fugiat nemo amet sit ratione, maxime
+            eaque debitis ipsa molestias explicabo modi nihil quae voluptate, iure voluptates blanditiis fuga quidem
+            temporibus?
+          </p>
         </div>
-    </div>
-    
+        <div id="reserva">
+          <h3 class="border-bottom pb-2 solid">Reserva de clientes</h3>
+          <form action="">
+            <label for="dtinicio">Inicio:</label>
+            <input type="text" name="dtinicio" id="dtinicio" class="form-control mb-3">
+            <label for="dtfim">Fim:</label>
+            <input type="text" name="dtfim" id="dtfim" class="form-control mb-3">
+            <input type="submit" value="Enviar" class="btn btn-primary">
+          </form>
+        </div>
+      </div><!--fecha o conteudo-->
+    </div><!--fecha a linha-->
+  </div><!-- fim - container -->
+
+
+
+  <!--Jquery-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <!--jquery UI-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.14.1/jquery-ui.min.js"
+    integrity="sha512-3hvw+Zxkz7PNP8E+6r5RkXgPj7tWq8a6vV0lE7QJqH4U3rHj+3v3bF9c6WWvP7rE2b5H1m6K5e1m5r5m5m5m5mA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <!--js do bootstrap 5-->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+  <script>
+        // aqui que iremos colocar o código JavaScript
+
+    /*comentário
+    de 
+    bloco, posso escrever um livro aqui.
+    só ir teclando enter
+    */
+
+  </script>
 </body>
+
 </html>
