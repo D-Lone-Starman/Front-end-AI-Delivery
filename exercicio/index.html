@@ -2,68 +2,71 @@
 <html lang="pt-br">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Aula9</title>
-  <!--css do bootstrap 5-->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aula9 - Contato</title>
+
+  <!-- Bootstrap 5 CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-  <link rel="stylesheet" href="css/estilo.css">
-  <!--bootstrap icons-->
+    crossorigin="anonymous">
+
+  <!-- Bootstrap Icons -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js">
-  </script>
-  <!--jquery UI-->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.14.1/jquery-ui.min.js" crossorigin="anonymous"
-    referrerpolicy="no-referrer"></script>
-  <!--js do bootstrap 5-->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous">
-  </script>
+
+  <!-- jQuery UI CSS  -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.14.1/themes/base/jquery-ui.min.css" />
+
+  <style>
+    body {
+      padding-top: 16px;
+    }
+
+    .nav-pills .nav-link {
+      cursor: pointer;
+    }
+
+    #tela1,
+    #reserva,
+    #contato {
+      padding: 12px;
+    }
+
+    .required::after {
+      content: " *";
+      color: #d00;
+      font-weight: 700;
+      margin-left: 4px;
+    }
+  </style>
 </head>
 
 <body>
-  <script>
-    $(function () {
-      var nome = "Joao";
-      console.log("vamos de js " + nome);
-      $("p").css("color", "#F00");
-      $("#alunos").hide().fadeIn(2000);
-      $(".add").on("click", function () {
-        $("#texto").css("font-size", "+=2px");
-      });
-      $(".less").on("click", function () {
-        $("#texto").css("font-size", "-=2px");
-      });
-      $("#reserva").hide();
-    });
-  </script>
+
   <div class="container">
     <div class="row">
+      <!-- Lateral -->
       <div class="col-3">
         <ul class="nav nav-pills flex-column">
           <li class="nav-item">
-            <a class="nav-link active" href="#">
-              Home <i class="bi bi-house"></i>
-            </a>
+            <a class="nav-link active" href="#" data-target="#tela1">Home <i class="bi bi-house"></i></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Reserva
-              <i class="bi bi-tag"></i></a>
+            <a class="nav-link" href="#" data-target="#reserva">Reserva <i class="bi bi-tag"></i></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">
-              Contato <i class="bi bi-envelope"></i>
-            </a>
+            <a class="nav-link" href="#" data-target="#contato">Contato <i class="bi bi-envelope"></i></a>
           </li>
         </ul>
-        </ul>
-      </div><!--fecha a lateral-->
+      </div>
+
+      <!-- Conteúdo -->
       <div class="col-9">
+        <!-- Home -->
         <div id="tela1">
-          <h2>Aula Front-end com Jquery</h2>
+          <h2>Aula Front-end com jQuery</h2>
           <p>O Bootstrap 5 facilita a criação de layouts responsivos e modernos.</p>
-          <span>Inteligencia artificial</span>
-          <div id="alunos">
+          <span>Inteligência artificial</span>
+          <div id="alunos" class="mt-3">
             <ul>
               <li>João</li>
               <li>Maria</li>
@@ -74,52 +77,169 @@
               <li>Rafael</li>
             </ul>
           </div>
-          <i class="bi bi-plus-circle add" style="cursor: pointer;"></i>
 
-          <i class="bi bi-dash-circle less" style="cursor: pointer;"></i>
+          <div class="mt-2">
+            <i class="bi bi-plus-circle add" style="cursor: pointer; font-size: 1.25rem;" title="Aumentar texto"></i>
+            <i class="bi bi-dash-circle less" style="cursor: pointer; font-size: 1.25rem;" title="Diminuir texto"></i>
+          </div>
 
-          <p id="texto">
+          <p id="texto" class="mt-3">
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum fugiat nemo amet sit ratione, maxime
             eaque debitis ipsa molestias explicabo modi nihil quae voluptate, iure voluptates blanditiis fuga quidem
             temporibus?
           </p>
         </div>
-        <div id="reserva">
-          <h3 class="border-bottom pb-2 solid">Reserva de clientes</h3>
-          <form action="">
-            <label for="dtinicio">Inicio:</label>
-            <input type="text" name="dtinicio" id="dtinicio" class="form-control mb-3">
-            <label for="dtfim">Fim:</label>
-            <input type="text" name="dtfim" id="dtfim" class="form-control mb-3">
-            <input type="submit" value="Enviar" class="btn btn-primary">
+
+        <!-- Reserva -->
+        <div id="reserva" style="display:none;">
+          <h3 class="border-bottom pb-2">Reserva de clientes</h3>
+          <form id="formReserva">
+            <label for="dtinicio" class="required">Início:</label>
+            <input type="text" name="dtinicio" id="dtinicio" class="form-control mb-3" autocomplete="off">
+
+            <label for="dtfim" class="required">Fim:</label>
+            <input type="text" name="dtfim" id="dtfim" class="form-control mb-3" autocomplete="off">
+
+            <input type="submit" value="Enviar Reserva" id="btnEnviar" class="btn btn-primary">
           </form>
         </div>
-      </div><!--fecha o conteudo-->
-    </div><!--fecha a linha-->
+
+        <!-- Contato  -->
+        <div id="contato" style="display:none;">
+          <h3 class="border-bottom pb-2">Fale conosco</h3>
+
+          <form id="formContato" novalidate>
+            <div class="mb-3">
+              <label for="nomeContato" class="form-label required">Nome</label>
+              <input type="text" id="nomeContato" class="form-control" required>
+              <div class="invalid-feedback">Por favor insira seu nome.</div>
+            </div>
+
+            <div class="mb-3">
+              <label for="emailContato" class="form-label required">E-mail</label>
+              <input type="email" id="emailContato" class="form-control" required>
+              <div class="invalid-feedback">Informe um e-mail válido.</div>
+            </div>
+
+            <div class="mb-3">
+              <label for="telefoneContato" class="form-label">Telefone</label>
+              <input type="tel" id="telefoneContato" class="form-control" placeholder="(XX) XXXXX-XXXX">
+            </div>
+
+            <div class="mb-3">
+              <label for="mensagemContato" class="form-label required">Mensagem</label>
+              <textarea id="mensagemContato" class="form-control" rows="4" required></textarea>
+              <div class="invalid-feedback">A mensagem não pode ficar vazia.</div>
+            </div>
+
+            <button type="submit" id="btnContatoEnviar" class="btn btn-success">Enviar Mensagem</button>
+          </form>
+        </div>
+
+      </div><!-- fecha o conteúdo -->
+    </div><!-- fecha a linha -->
   </div><!-- fim - container -->
 
-
-
-  <!--Jquery-->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
-    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-  <!--jquery UI-->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.14.1/jquery-ui.min.js"
-    integrity="sha512-3hvw+Zxkz7PNP8E+6r5RkXgPj7tWq8a6vV0lE7QJqH4U3rHj+3v3bF9c6WWvP7rE2b5H1m6K5e1m5r5m5m5m5mA=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <!--js do bootstrap 5-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.14.1/jquery-ui.min.js" crossorigin="anonymous"
+    referrerpolicy="no-referrer"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
     crossorigin="anonymous"></script>
+
   <script>
-        // aqui que iremos colocar o código JavaScript
+    $(function () {
+      $("#dtinicio").datepicker({
+        numberOfMonths: 3,
+        changeMonth: true,
+        changeYear: true,
+        dateFormat: "dd/mm/yy",
+        onSelect: function (selectedDate) {
+          $("#dtfim").datepicker("option", "minDate", selectedDate);
+        }
+      });
 
-    /*comentário
-    de 
-    bloco, posso escrever um livro aqui.
-    só ir teclando enter
-    */
+      $("#dtfim").datepicker({
+        changeMonth: true,
+        changeYear: true,
+        dateFormat: "dd/mm/yy",
+        onSelect: function (selectedDate) {
+          $("#dtinicio").datepicker("option", "maxDate", selectedDate);
+        }
+      });
 
+
+      $(".add").on("click", function () {
+        $("#texto").css("font-size", function (i, v) {
+          const current = parseFloat(v) || 16;
+          return (current + 2) + "px";
+        });
+      });
+      $(".less").on("click", function () {
+        $("#texto").css("font-size", function (i, v) {
+          const current = parseFloat(v) || 16;
+          return Math.max(10, current - 2) + "px";
+        });
+      });
+
+      $(".nav a").on("click", function (e) {
+        e.preventDefault();
+
+        $(".nav li").removeClass("active");
+        $(this).parent().addClass("active");
+
+        const target = $(this).data("target");
+        $("#tela1, #reserva, #contato").hide();
+        if (target && $(target).length) {
+          $(target).show();
+        } else {
+          $("#tela1").show();
+        }
+      });
+
+      $("#formReserva").on("submit", function (e) {
+        e.preventDefault()
+        alert("Reserva enviada com sucesso!");
+        this.reset();
+      });
+
+
+      $("#formContato").on("submit", function (e) {
+        e.preventDefault();
+
+        $(this).find(".is-invalid").removeClass("is-invalid");
+
+        const nome = $("#nomeContato").val().trim();
+        const email = $("#emailContato").val().trim();
+        const mensagem = $("#mensagemContato").val().trim();
+
+        let valido = true;
+
+        if (!nome) {
+          $("#nomeContato").addClass("is-invalid");
+          valido = false;
+        }
+        if (!email || !validarEmail(email)) {
+          $("#emailContato").addClass("is-invalid");
+          valido = false;
+        }
+        if (!mensagem) {
+          $("#mensagemContato").addClass("is-invalid");
+          valido = false;
+        }
+
+        if (!valido) {
+          $(this).find(".is-invalid").first().focus();
+          return;
+        }
+
+        alert("Mensagem enviada com sucesso! Obrigado pelo contato, " + nome + ".");
+        this.reset();
+
+      });
+
+      $("#tela1").show();
+      $("#reserva, #contato").hide();
+    });
   </script>
 </body>
 
