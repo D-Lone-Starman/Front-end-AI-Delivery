@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Loja do Merlin</title>
 
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -19,17 +19,213 @@
             min-height: 100vh;
         }
 
+        @media (max-width: 768px) {
+            section {
+                padding: 60px 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            section {
+                padding: 40px 10px;
+            }
+        }
+
         .navbar-brand img {
             height: 70px;
             width: auto;
         }
-    </style>
 
+        @media (max-width: 768px) {
+            .navbar-brand img {
+                height: 50px;
+            }
+        }
+
+        .carousel-inner img {
+            width: auto;
+            max-height: 400px;
+            object-fit: contain;
+        }
+
+        @media (max-width: 768px) {
+            .carousel-inner img {
+                max-height: 250px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg bg-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#home">
+                <img src="img/logo.png" alt="Logo da Loja do Merlin">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto nav-pills gap-2 flex-column flex-lg-row">
+                    <li class="nav-item"><a class="nav-link active" href="#home">Cadastrar</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#listar">Listar</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#funcionarios">Funcionários</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#local">Local</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Seção Home -->
+    <section id="home" class="bg-primary text-white text-center">
+        <h1>Loja do Merlin</h1>
+        <p>Bem-vindo à grande loja de poções do mago Merlin</p>
+    </section>
+
+    <!-- Seção Listar com Carrossel -->
+    <section id="listar" class="bg-secondary text-white text-center">
+        <div class="container">
+            <h1 class="mb-4">Listar Poções</h1>
+            <p>Confira as poções mais potentes da loja:</p>
+
+            <div id="carrosselPocoes" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#carrosselPocoes" data-bs-slide-to="0"
+                        class="active"></button>
+                    <button type="button" data-bs-target="#carrosselPocoes" data-bs-slide-to="1"></button>
+                    <button type="button" data-bs-target="#carrosselPocoes" data-bs-slide-to="2"></button>
+                    <button type="button" data-bs-target="#carrosselPocoes" data-bs-slide-to="3"></button>
+                    <button type="button" data-bs-target="#carrosselPocoes" data-bs-slide-to="4"></button>
+                </div>
+
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="img/pt1.png" class="d-block mx-auto img-fluid rounded" alt="Poção 1">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>Poção da Força</h5>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="img/pt2.jpg" class="d-block mx-auto img-fluid rounded" alt="Poção 2">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>Poção da Cura</h5>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="img/pt3.jpg" class="d-block mx-auto img-fluid rounded" alt="Poção 3">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>Poção da Invisibilidade</h5>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="img/pt4.jpg" class="d-block mx-auto img-fluid rounded" alt="Poção 4">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>Poção da Velocidade</h5>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="img/pt5.jpg" class="d-block mx-auto img-fluid rounded" alt="Poção 5">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>Poção da Sabedoria</h5>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="carousel-control-prev" type="button" data-bs-target="#carrosselPocoes"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon"></span>
+                    <span class="visually-hidden">Anterior</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carrosselPocoes"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon"></span>
+                    <span class="visually-hidden">Próximo</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção Funcionários -->
+    <section id="funcionarios" class="bg-warning text-dark">
+        <div class="container">
+            <h1 class="mb-4">Funcionários</h1>
+            <p>Encontre funcionários pelo CEP:</p>
+
+            <form id="formFuncionario">
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="cepFuncionario" class="form-label">CEP</label>
+                        <input type="text" class="form-control" id="cepFuncionario" placeholder="Digite o CEP"
+                            maxlength="9">
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="ruaFuncionario" class="form-label">Rua</label>
+                        <input type="text" class="form-control" id="ruaFuncionario" readonly>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4 mb-3">
+                        <label for="bairroFuncionario" class="form-label">Bairro</label>
+                        <input type="text" class="form-control" id="bairroFuncionario" readonly>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="cidadeFuncionario" class="form-label">Cidade</label>
+                        <input type="text" class="form-control" id="cidadeFuncionario" readonly>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="estadoFuncionario" class="form-label">Estado</label>
+                        <input type="text" class="form-control" id="estadoFuncionario" readonly>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-dark">Buscar Funcionário</button>
+            </form>
+
+            <div class="text-center mt-4">
+                <img src="img/funci.jpg" class="img-fluid rounded" alt="Funcionários" style="max-width: 400px;">
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção Local -->
+    <section id="local" class="bg-dark text-white">
+        <div class="container">
+            <h1 class="mb-4">Contato</h1>
+            <p>Preencha o formulário para entrar em contato conosco:</p>
+
+            <form>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="nomeContato" class="form-label">Nome</label>
+                        <input type="text" class="form-control" id="nomeContato" placeholder="Digite seu nome">
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="emailContato" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="emailContato" placeholder="Digite seu email">
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="mensagemContato" class="form-label">Mensagem</label>
+                    <textarea class="form-control" id="mensagemContato" rows="4"
+                        placeholder="Digite sua mensagem"></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-light">Enviar</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Scripts JS -->
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        $(document).ready(function () {
+        $(function () {
             $("#cepFuncionario").on("blur", function () {
                 let cep = $(this).val().replace(/\D/g, "");
-
                 if (cep.length === 8) {
                     $.getJSON("https://viacep.com.br/ws/" + cep + "/json/", function (dados) {
                         if (!("erro" in dados)) {
@@ -47,180 +243,6 @@
             });
         });
     </script>
-</head>
-
-<body>
-    <nav class="navbar navbar-expand-lg bg-light fixed-top">
-        <div class="container">
-            <!-- Logo -->
-            <a class="navbar-brand" href="index.html">
-                <img src="img/logo.png" alt="Logo">
-            </a>
-
-            <!-- Botão hamburguer -->
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <!-- Menu -->
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto nav-pills gap-2">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#home">Cadastrar</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#listar">Listar</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#funcionarios">Funcionarios</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#local">Local</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Seções -->
-    <section id="home" class="bg-primary text-white text-center">
-        <h1>Home</h1>
-        <p>Bem-vindo a grande loja de merlin o mago</p>
-    </section>
-
-    <section id="listar" class="bg-secondary text-white text-center">
-        <div class="container">
-            <h1 class="mb-4">Listar</h1>
-            <p>Aqui você encontra a lista de poções mais potentes.</p>
-
-            <!-- Carrossel de Poções -->
-            <div id="carrosselPocoes" class="carousel slide" data-bs-ride="carousel">
-
-                <!-- Indicadores (bolinhas) -->
-                <div class="carousel-indicators">
-                    <button type="button" data-bs-target="#carrosselPocoes" data-bs-slide-to="0"
-                        class="active"></button>
-                    <button type="button" data-bs-target="#carrosselPocoes" data-bs-slide-to="1"></button>
-                    <button type="button" data-bs-target="#carrosselPocoes" data-bs-slide-to="2"></button>
-                    <button type="button" data-bs-target="#carrosselPocoes" data-bs-slide-to="3"></button>
-                    <button type="button" data-bs-target="#carrosselPocoes" data-bs-slide-to="4"></button>
-                </div>
-
-                <!-- Imagens -->
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img src="img/pt1.png" class="d-block mx-auto img-fluid rounded" style="max-height: 400px;"
-                            alt="Poção 1">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="img/pt2.jpg" class="d-block mx-auto img-fluid rounded" style="max-height: 400px;"
-                            alt="Poção 2">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="img/pt3.jpg" class="d-block mx-auto img-fluid rounded" style="max-height: 400px;"
-                            alt="Poção 3">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="img/pt4.jpg" class="d-block mx-auto img-fluid rounded" style="max-height: 400px;"
-                            alt="Poção 4">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="img/pt5.jpg" class="d-block mx-auto img-fluid rounded" style="max-height: 400px;"
-                            alt="Poção 5">
-                    </div>
-                </div>
-
-                <!-- Botões de navegação -->
-                <button class="carousel-control-prev" type="button" data-bs-target="#carrosselPocoes"
-                    data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon"></span>
-                    <span class="visually-hidden">Anterior</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carrosselPocoes"
-                    data-bs-slide="next">
-                    <span class="carousel-control-next-icon"></span>
-                    <span class="visually-hidden">Próximo</span>
-                </button>
-            </div>
-        </div>
-    </section>
-
-    <section id="funcionarios" class="bg-warning text-dark">
-        <div class="container">
-            <h1 class="mb-4">Funcionários</h1>
-            <p>Encontre funcionários pelo CEP:</p>
-
-            <!-- Formulário Funcionários -->
-            <form id="formFuncionario">
-                <div class="mb-3">
-                    <label for="cepFuncionario" class="form-label">CEP</label>
-                    <input type="text" class="form-control" id="cepFuncionario" placeholder="Digite o CEP"
-                        maxlength="9">
-                </div>
-
-                <div class="mb-3">
-                    <label for="ruaFuncionario" class="form-label">Rua</label>
-                    <input type="text" class="form-control" id="ruaFuncionario" readonly>
-                </div>
-
-                <div class="mb-3">
-                    <label for="bairroFuncionario" class="form-label">Bairro</label>
-                    <input type="text" class="form-control" id="bairroFuncionario" readonly>
-                </div>
-
-                <div class="mb-3">
-                    <label for="cidadeFuncionario" class="form-label">Cidade</label>
-                    <input type="text" class="form-control" id="cidadeFuncionario" readonly>
-                </div>
-
-                <div class="mb-3">
-                    <label for="estadoFuncionario" class="form-label">Estado</label>
-                    <input type="text" class="form-control" id="estadoFuncionario" readonly>
-                </div>
-
-                <button type="submit" class="btn btn-dark">Buscar Funcionário</button>
-            </form>
-
-            <!-- Imagem -->
-            <div class="text-center mt-4">
-                <img src="img/funci.jpg" class="img-fluid rounded" alt="Funcionarios" style="max-width: 400px;">
-            </div>
-        </div>
-    </section>
-
-    <section id="local" class="bg-dark text-white">
-        <div class="container">
-            <h1 class="mb-4">Contato</h1>
-            <p>Preencha o formulário para entrar em contato conosco:</p>
-
-            <form>
-                <div class="mb-3">
-                    <label for="nomeContato" class="form-label">Nome</label>
-                    <input type="text" class="form-control" id="nomeContato" placeholder="Digite seu nome">
-                </div>
-
-                <div class="mb-3">
-                    <label for="emailContato" class="form-label">Email</label>
-                    <input type="email" class="form-control" id="emailContato" placeholder="Digite seu email">
-                </div>
-
-                <div class="mb-3">
-                    <label for="mensagemContato" class="form-label">Mensagem</label>
-                    <textarea class="form-control" id="mensagemContato" rows="4"
-                        placeholder="Digite sua mensagem"></textarea>
-                </div>
-
-                <button type="submit" class="btn btn-light">Enviar</button>
-            </form>
-            <!-- Script ViaCEP -->
-
-        </div>
-    </section>
-
-
-    <!-- Bootstrap Bundle JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
