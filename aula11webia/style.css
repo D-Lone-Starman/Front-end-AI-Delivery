@@ -1,0 +1,141 @@
+a:root {
+    --bg: #0f1724;
+    /* deep night */
+    --card: #0b1220;
+    --accent: #7c5cff;
+    /* mystical lilac */
+    --muted: #a7b0c0;
+    --glass: rgba(255, 255, 255, 0.04);
+}
+
+html,
+body {
+    height: 100%;
+    background: linear-gradient(180deg, rgba(15, 17, 36, 1) 0%, rgba(6, 9, 22, 1) 100%);
+    font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Texto dourado degradê */
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a,
+label,
+strong,
+small,
+li,
+div {
+    background: linear-gradient(90deg, #FFD700, #FFA500);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+}
+
+/* fixed top nav spacing (mobile-first) */
+body {
+    padding-top: 72px
+}
+
+.navbar-brand {
+    font-family: 'Merriweather', serif;
+    font-weight: 700;
+    letter-spacing: 0.6px
+}
+
+/* Hero */
+.hero {
+    min-height: 48vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 3rem 1rem;
+    background: linear-gradient(180deg, rgba(124, 92, 255, 0.08), transparent 60%);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(4px);
+}
+
+.hero h1 {
+    font-family: 'Merriweather', serif;
+    font-size: 1.6rem;
+    margin-bottom: .4rem
+}
+
+.hero p {
+    margin-bottom: 1rem
+}
+
+.card-glass {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    box-shadow: 0 6px 18px rgba(2, 6, 23, 0.6);
+    border-radius: 12px;
+}
+
+.feature-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 12px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--glass);
+    backdrop-filter: blur(6px);
+    font-weight: 600;
+    font-size: 18px;
+    color: var(--accent);
+}
+
+footer {
+    padding: 2rem 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.02)
+}
+
+/* Contact form styling */
+/* Inputs, selects e textarea com fundo preto/escuro e texto dourado */
+.form-control,
+.form-select,
+textarea.form-control {
+    background-color: #0b1220; /* mesmo tom do card */
+    color: #FFD700; /* texto dourado */
+    border: 1px solid rgba(124, 92, 255, 0.5); /* leve destaque lilás */
+}
+
+.form-control::placeholder,
+textarea.form-control::placeholder {
+    color: rgba(172, 146, 3, 0.6); /* placeholder mais suave */
+    opacity: 1; /* garantir que o placeholder seja visível */
+}
+
+.form-control:focus,
+.form-select:focus,
+textarea.form-control:focus {
+    background-color: #0b1220; /* manter fundo escuro ao focar */
+    color: #FFD700;
+    border-color: rgba(124, 92, 255, 0.8); /* destaque ao focar */
+    box-shadow: 0 0 0 .12rem rgba(124, 92, 255, 0.2);
+}
+
+/* Small tweaks for larger screens */
+@media(min-width:768px) {
+    .hero {
+        min-height: 56vh;
+        padding: 6rem 2rem
+    }
+
+    .hero h1 {
+        font-size: 2.4rem
+    }
+
+    body {
+        padding-top: 80px
+    }
+}
