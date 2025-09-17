@@ -34,8 +34,29 @@
     </nav>
 
     <!-- HERO -->
-    <header class="hero">
-        <div class="container text-center">
+    <!-- HERO -->
+    <header class="hero position-relative">
+        <!-- Carrossel de fundo -->
+        <div id="heroCarousel" class="carousel slide carousel-fade position-absolute top-0 start-0 w-100 h-100"
+            data-bs-ride="carousel">
+            <div class="carousel-inner h-100">
+                <div class="carousel-item active h-100">
+                    <img src="imagens/magoferias.jpg" class="d-block w-100 h-100 object-fit-cover" alt="Imagem 1">
+                </div>
+                <div class="carousel-item h-100">
+                    <img src="imagens/magoferias2.jpg" class="d-block w-100 h-100 object-fit-cover" alt="Imagem 2">
+                </div>
+                <div class="carousel-item h-100">
+                    <img src="imagens/magoferias3.jpg" class="d-block w-100 h-100 object-fit-cover" alt="Imagem 3">
+                </div>
+                <div class="carousel-item h-100">
+                    <img src="imagens/magoferias4.jpg" class="d-block w-100 h-100 object-fit-cover" alt="Imagem 4">
+                </div>
+            </div>
+        </div>
+
+        <!-- Conteúdo sobreposto -->
+        <div class="container text-center position-relative" style="z-index: 2;">
             <h1>Refúgio seguro para magos cansados</h1>
             <p>Silêncio controlado, elixires à disposição e quartos com proteção anti-espalhamento de mana — um lugar
                 para recarregar corpo e alma.</p>
@@ -44,6 +65,9 @@
                 <a href="#quem-somos" class="btn btn-lg btn-primary">Conheça nossa filosofia</a>
             </div>
         </div>
+
+        <!-- Sobreposição escura para melhorar legibilidade -->
+        <div class="position-absolute top-0 start-0 w-100 h-100 bg-dark" style="opacity: 0.45; z-index: 1;"></div>
     </header>
 
     <!-- MAIN CONTENT -->
@@ -57,7 +81,8 @@
                         <div class="card card-glass p-3">
                             <div class="row align-items-center gy-3">
                                 <div class="col-auto">
-                                    <div class="feature-icon">☽</div>
+                                    <img src="imagens/LAB.jpg" class="rounded-circle"
+                                    width="56rem" height="56rem">
                                 </div>
                                 <div class="col">
                                     <h5 class="mb-0">Silêncio e segurança</h5>
@@ -68,6 +93,7 @@
                                 </div>
                                 <div class="col-auto d-none d-md-flex">
                                     <div class="feature-icon">⚗</div>
+                                    
                                 </div>
                                 <div class="col d-none d-md-block">
                                     <h5 class="mb-0">Laboratório leve</h5>
@@ -127,8 +153,8 @@
                             <h3 class="h6">Equipe</h3>
                             <div class="d-flex gap-3 align-items-center">
                                 <div>
-                                    <img src="BLANK_IMAGEM_EQUIPE.jpg" alt="Aristeu" class="rounded-circle" width="56"
-                                        height="56">
+                                    <img src="imagens/perfilaristeu.png" alt="Aristeu" class="rounded-circle"
+                                        width="56em" height="56em">
                                 </div>
                                 <div>
                                     <strong>Aristeu — Guardião do Tomo</strong>

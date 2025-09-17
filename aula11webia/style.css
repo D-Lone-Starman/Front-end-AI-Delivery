@@ -18,26 +18,43 @@ body {
 }
 
 /* Texto dourado degradê */
-body,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-a,
-label,
-strong,
-small,
-li,
-div {
+body, p, li, small, div {
+    color: #f1f1f1 !important; /* texto claro padrão */
+    background: none !important;
+    -webkit-background-clip: initial !important;
+    -webkit-text-fill-color: initial !important;
+}
+
+h1, h2, h3, h4, h5, h6, strong, a, label {
+    background: linear-gradient(90deg, #FFD700, #FFA500);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Resetar links da navbar para ficarem legíveis */
+/* Marca (nome da pousada) em dourado degradê */
+.navbar-brand {
     background: linear-gradient(90deg, #FFD700, #FFA500);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    color: transparent;
+    font-weight: 700;
 }
+
+/* Links da navbar brancos */
+.navbar .nav-link {
+    color: #fff !important;
+    background: none !important;
+    -webkit-background-clip: initial !important;
+    -webkit-text-fill-color: initial !important;
+}
+
+/* Link ativo dourado */
+.navbar .nav-link.active {
+    color: #FFD700 !important;
+}
+
+
 
 /* fixed top nav spacing (mobile-first) */
 body {
@@ -45,6 +62,11 @@ body {
 }
 
 .navbar-brand {
+    background: linear-gradient(90deg, #FFD700, #FFA500);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
     font-family: 'Merriweather', serif;
     font-weight: 700;
     letter-spacing: 0.6px
@@ -101,28 +123,31 @@ footer {
 
 /* Contact form styling */
 /* Inputs, selects e textarea com fundo preto/escuro e texto dourado */
+/* Ajuste de inputs e selects */
 .form-control,
 .form-select,
 textarea.form-control {
-    background-color: #0b1220; /* mesmo tom do card */
-    color: #FFD700; /* texto dourado */
-    border: 1px solid rgba(124, 92, 255, 0.5); /* leve destaque lilás */
+    background-color: #1b1136; /* roxo profundo */
+    color: #f8f8ff; /* quase branco */
+    border: 1px solid rgba(124, 92, 255, 0.6); /* lilás */
+    border-radius: 8px;
 }
 
 .form-control::placeholder,
 textarea.form-control::placeholder {
-    color: rgba(172, 146, 3, 0.6); /* placeholder mais suave */
-    opacity: 1; /* garantir que o placeholder seja visível */
+    color: #bbb; /* placeholder cinza claro */
+    opacity: 1;
 }
 
 .form-control:focus,
 .form-select:focus,
 textarea.form-control:focus {
-    background-color: #0b1220; /* manter fundo escuro ao focar */
-    color: #FFD700;
-    border-color: rgba(124, 92, 255, 0.8); /* destaque ao focar */
-    box-shadow: 0 0 0 .12rem rgba(124, 92, 255, 0.2);
+    background-color: #221344; /* tom mais claro ao focar */
+    color: #fff;
+    border-color: #a88fff; /* roxo/lilás mais vivo */
+    box-shadow: 0 0 0 .18rem rgba(124, 92, 255, 0.4);
 }
+
 
 /* Small tweaks for larger screens */
 @media(min-width:768px) {
