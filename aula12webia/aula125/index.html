@@ -68,7 +68,7 @@
                                 <div class="col-md-6">
                                     <label for="estado" class="form-label">Estado</label>
                                     <select class="form-select" id="estado" name="estado">
-                                        <option value="">Selecione o Estado</option>
+                                        <option value=''>Selecione o Estado</option>
                                         <option value="SP">SP</option>
                                         <option value="RJ">RJ</option>
                                     </select>
@@ -99,9 +99,121 @@
                         </div>
                     </div>
                 </form>
-            </div>
-        </div><!-- fecha row -->
-    </div>
+                <!-- container para resposta -->
+                <div id="resp" class="mt-3"></div>
+
+
+                <div class="col-md-12">
+                    <table id="tabelaFuncionarios" class="table table-striped" style="display:none;">
+                        <thead>
+                            <tr>
+                                <th>Nome</th>
+                                <th>Data de Nascimento</th>
+                                <th>RG</th>
+                                <th>CPF</th>
+                                <th>Telefone</th>
+                                <th>Estado</th>
+                                <th>Cidade</th>
+                                <th>Salário</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>João Silva</td>
+                                <td>1990-05-15</td>
+                                <td>12.345.678-9</td>
+                                <td>123.123.123-00</td>
+                                <td>(11) 91234-5678</td>
+                                <td>SP</td>
+                                <td>São Paulo</td>
+                                <td>3500.00</td>
+                            </tr>
+                            <tr>
+                                <td>Maria Oliveira</td>
+                                <td>1985-10-20</td>
+                                <td>98.765.432-1</td>
+                                <td>987.654.321-00</td>
+                                <td>(21) 912345-1232</td>
+                                <td>RJ</td>
+                                <td>Rio de Janeiro</td>
+                                <td>4200.00</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!--tabela zebrada-->
+
+
+            </div><!-- fecha row -->
+        </div>
+        <script>
+            $(function () {
+                const cidadesPorEstado = {
+                    'SP': ['São Paulo', 'Campinas', 'Santos'],
+                    'RJ': ['Rio de Janeiro', 'Niterói', 'Petrópolis']
+                };
+
+                // popula cidades ao mudar estado
+                $('#estado').on('change', function () {
+                    const estado = $(this).val();
+                    const cidades = cidadesPorEstado[estado] || [];
+
+                    let options = "<option value=''>Selecione a Cidade</option>";
+                    cidades.forEach(function (cidade) {
+                        options += `<option value='${cidade.toLowerCase().replace(/ /g, "_")}'>${cidade}</option>`;
+                    });
+
+                    $('#cidade').html(options);
+                });
+
+                // envio de formulário com AJAX
+                $('.btnenviar').on('click', function (e) {
+                    e.preventDefault(); // evita reload
+
+                    // coleta os dados
+                    const dados = {
+                        nome: $('#nome').val(),
+                        dataNasc: $('#dataNasc').val(),
+                        rg: $('#rg').val(),
+                        cpf: $('#cpf').val(),
+                        telefone: $('#telefone').val(),
+                        estado: $('#estado').val(),
+                        cidade: $('#cidade').val(),
+                        salario: $('#salario').val()
+                    };
+
+                    // exibe loading
+                    $("#resp").html(`
+                        <div class="text-center">
+                            <div class="spinner-border text-primary" role="status"></div>
+                            <p>Enviando dados...</p>
+                        </div>
+                    `);
+
+                    // simulação de envio com timeout (aqui você trocaria pelo $.ajax real)
+                    setTimeout(() => {
+                        $("#resp").html(`<div class="alert alert-success">Dados enviados com sucesso!</div>`);
+                        $("#tabelaFuncionarios").fadeIn();
+
+                        $("#tabelaFuncionarios tbody").append(`
+                        <tr>
+                            <td>${dados.nome}</td>
+                            <td>${dados.dataNasc}</td>
+                            <td>${dados.rg}</td>
+                            <td>${dados.cpf}</td>
+                            <td>${dados.telefone}</td>
+                            <td>${dados.estado}</td>
+                            <td>${dados.cidade}</td>
+                            <td>${dados.salario}</td>
+                        </tr>
+                        `);
+                        console.log(dados);
+                    }, 2000);
+                });
+            });
+        </script>
+
+
 </body>
 
 </html>
