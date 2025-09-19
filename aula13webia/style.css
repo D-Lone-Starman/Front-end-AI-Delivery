@@ -1,0 +1,232 @@
+/* Reset simples */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Orbitron', monospace, system-ui;
+}
+
+/* Fundo geral: céu + estrelas */
+body {
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+    background: radial-gradient(ellipse at bottom, #1a0033 0%, #000010 100%);
+    color: #fff;
+}
+
+/* Céu estrelado (animação sutil) */
+body::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: transparent url("https://www.transparenttextures.com/patterns/stardust.png") repeat;
+    opacity: 0.7;
+    animation: stars 200s linear infinite;
+    z-index: 0;
+}
+
+@keyframes stars {
+    from {
+        background-position: 0 0;
+    }
+
+    to {
+        background-position: 10000px 10000px;
+    }
+}
+
+/* Grade retrô */
+body::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(#ff00ff55 1px, transparent 1px),
+        linear-gradient(90deg, #ff00ff55 1px, transparent 1px);
+    background-size: 50px 50px;
+    transform: perspective(500px) rotateX(70deg);
+    transform-origin: top center;
+    top: 50%;
+    height: 100%;
+    width: 200%;
+    left: -50%;
+    z-index: 1;
+    animation: gridScroll 6s linear infinite;
+}
+
+@keyframes gridScroll {
+    from {
+        background-position-y: 0;
+    }
+
+    to {
+        background-position-y: 50px;
+    }
+}
+
+/* Scanlines CRT */
+.app-container::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.15) 1px, transparent 1px);
+    background-size: 100% 3px;
+    pointer-events: none;
+    z-index: 5;
+}
+
+/* Container principal */
+.app-container {
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    position: relative;
+    z-index: 2;
+    padding: 20px;
+}
+
+/* Calculadora em estilo neon */
+.calculator {
+    width: min(520px, 92vw);
+    padding: 28px;
+    border-radius: 16px;
+    background: rgba(0, 0, 0, 0.6);
+    border: 2px solid #ff00ff88;
+    box-shadow:
+        0 0 20px #ff00ff,
+        0 0 40px #00ffff;
+    color: #fff;
+    text-align: center;
+}
+
+/* Título */
+.title {
+    font-size: 1.8rem;
+    margin-bottom: 16px;
+    color: #fff;
+    text-shadow:
+        0 0 5px #ff00ff,
+        0 0 10px #00ffff;
+}
+
+/* Inputs */
+.inputs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px 14px;
+    margin-bottom: 16px;
+}
+
+.inputs label {
+    grid-column: span 2;
+    font-size: 0.9rem;
+    opacity: 0.85;
+}
+
+.inputs input {
+    padding: 10px;
+    border-radius: 8px;
+    border: 2px solid #00ffff66;
+    background: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    outline: none;
+    font-size: 1rem;
+    transition: box-shadow .2s ease;
+}
+
+.inputs input:focus {
+    box-shadow: 0 0 10px #00ffff, 0 0 20px #ff00ff;
+}
+
+/* Título com glow pulsante */
+.title {
+    font-size: 1.8rem;
+    margin-bottom: 16px;
+    color: #fff;
+    text-shadow:
+        0 0 5px #ff00ff,
+        0 0 10px #00ffff,
+        0 0 20px #ff00ff;
+    animation: neonPulse 2.5s ease-in-out infinite alternate;
+}
+
+/* Botões com glow pulsante */
+.controls button {
+    padding: 10px 16px;
+    border-radius: 8px;
+    border: none;
+    background: linear-gradient(90deg, #ff00ff, #00ffff);
+    color: #000;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform .15s ease;
+    text-shadow: 0 0 3px #fff;
+    box-shadow:
+        0 0 8px #ff00ff,
+        0 0 12px #00ffff;
+    animation: neonPulse 3s ease-in-out infinite alternate;
+}
+
+.controls button:hover {
+    transform: scale(1.1);
+}
+
+
+
+.controls button {
+    padding: 10px 16px;
+    border-radius: 8px;
+    border: none;
+    background: linear-gradient(90deg, #ff00ff, #00ffff);
+    color: #000;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform .15s ease, box-shadow .2s ease;
+    text-shadow: 0 0 3px #fff;
+}
+
+.controls button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 10px #ff00ff, 0 0 20px #00ffff;
+}
+
+.controls .muted {
+    background: #333;
+    color: #fff;
+}
+
+/* Resultado */
+.result {
+    padding: 12px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid #ff00ff55;
+    font-size: 1.1rem;
+    min-height: 44px;
+    margin-top: 10px;
+    text-shadow: 0 0 6px #00ffff;
+}
+
+/* Animação neon */
+@keyframes neonPulse {
+    0% {
+        text-shadow:
+            0 0 5px #ff00ff,
+            0 0 10px #00ffff,
+            0 0 20px #ff00ff;
+        box-shadow:
+            0 0 8px #ff00ff,
+            0 0 12px #00ffff;
+    }
+
+    100% {
+        text-shadow:
+            0 0 10px #00ffff,
+            0 0 20px #ff00ff,
+            0 0 30px #00ffff;
+        box-shadow:
+            0 0 15px #00ffff,
+            0 0 25px #ff00ff;
+    }
+}
