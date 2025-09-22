@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Máquina de Tabuada Synthwave</title>
+    <style>
+        /* Corpo da página */
+        body {
+            font-family: 'Courier New', monospace;
+            color: #00ffea;
+            text-align: center;
+            margin: 0;
+            height: 100vh;
+            overflow: hidden;
+            background: linear-gradient(#0f0c29, #302b63, #24243e);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        h1 {
+            font-size: 3rem;
+            color: #ff3cac;
+            text-shadow: 0 0 10px #ff3cac, 0 0 20px #ff3cac;
+        }
+
+        form {
+            margin-bottom: 20px;
+        }
+
+        input,
+        button {
+            font-size: 1rem;
+            padding: 0.5rem;
+            margin: 5px;
+            border-radius: 5px;
+            border: none;
+        }
+
+        button {
+            background-color: #ff3cac;
+            color: white;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background-color: #00ffea;
+            color: black;
+        }
+
+        /* Efeito synthwave animado */
+        body::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: repeating-linear-gradient(0deg,
+                    rgba(255, 60, 172, 0.2) 0px,
+                    rgba(255, 60, 172, 0.2) 2px,
+                    transparent 2px,
+                    transparent 4px);
+            animation: moveGrid 5s linear infinite;
+            z-index: 0;
+        }
+
+        @keyframes moveGrid {
+            0% {
+                transform: translate(0, 0);
+            }
+
+            100% {
+                transform: translate(50px, 50px);
+            }
+        }
+
+        #resultado {
+            position: relative;
+            z-index: 1;
+            font-size: 1.5rem;
+            text-shadow: 0 0 5px #00ffea, 0 0 10px #ff3cac;
+        }
+
+        form,
+        h1 {
+            position: relative;
+            z-index: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Máquina de Tabuada Synthwave</h1>
+
+    <form id="tabuadaForm">
+        Digite um número:
+        <input type="number" id="numero" required>
+        <button type="submit">Exibir Tabuada</button>
+    </form>
+
+    <div id="resultado"></div>
+
+    <script>
+        const form = document.getElementById('tabuadaForm');
+        const resultadoDiv = document.getElementById('resultado');
+
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const numero = parseInt(document.getElementById('numero').value);
+            let resultado = `<h2>Tabuada do ${numero}</h2>`;
+
+            for (let i = 1; i <= 13; i++) {
+                resultado += `${numero} x ${i} = ${numero * i} <br>`;
+            }
+
+            resultadoDiv.innerHTML = resultado;
+        });
+    </script>
+</body>
+
+</html>

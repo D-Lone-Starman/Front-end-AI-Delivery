@@ -39,4 +39,18 @@ document.addEventListener('DOMContentLoaded', () => {
         n2.value = '';
         resultEl.textContent = 'Resultado: —';
     });
+    // botão para área do cilindro
+    document.getElementById("cylinderBtn").addEventListener("click", function () {
+        const r = parseFloat(document.getElementById("num1").value);
+        const h = parseFloat(document.getElementById("num2").value);
+
+        if (isNaN(r) || isNaN(h)) {
+            document.getElementById("result").innerText = "Digite valores válidos!";
+            return;
+        }
+
+        const area = 2 * 3.14 * r * (r + h);
+        document.getElementById("result").innerText = `Área do cilindro: ${area.toFixed(2)}`;
+    });
+
 });
